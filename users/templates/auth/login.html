@@ -1,0 +1,30 @@
+{% block page_title %}
+    "Login"
+{% endblock %}
+
+    Login to IRBarrier
+
+{% block content %}
+    {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+            <div>
+                {{ error }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div>
+            {{ form }}
+            <div >
+                <button name="commit" type="submit" value="Access">
+                    Access
+                </button>
+            </div>
+        </div>
+
+    </form>
+
+{% endblock %}
